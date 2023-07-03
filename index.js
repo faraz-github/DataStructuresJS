@@ -51,3 +51,49 @@ for (const item of arr) {
 // arr.push / arr.pop - O(1)
 // arr.shift / arr.unshift / arr.concat / arr.slice / arr.splice - O(n)
 // arr.forEach / arr.map / arr.filter / arr.reduce - O(n)
+
+// 2. Objects
+// ======================================================================================================================================
+
+// a) object is a collection of key-value pairs
+// b) key can be string or symbol and value can be any type
+// c) object values can be accessed using dot notation or bracket notation
+// d) objects are not iterable
+
+// Declare and initialize an object
+const obj = {
+  name: "Apple",
+  quantity: 5,
+  "taste-like": "sweet",
+  sayMyName: function () {
+    console.log(`Call me ${this.name}`);
+  },
+};
+
+// Object operations
+// obj.name // Access
+// obj["taste-like"] // Access
+// obj.color = "red"; // Update
+// delete obj.color;  // Delete
+// Object.keys(obj); // Access Keys Only
+// Object.values(obj); // Access Values Only
+// Object.entries(obj); // Access Both Keys And Values
+
+// Testing
+console.log(obj);
+console.log(Object.keys(obj));
+console.log(Object.values(obj));
+console.log(Object.entries(obj));
+console.log(obj.name);
+console.log(obj["quantity"]);
+console.log(obj["taste-like"]); // note: mostly bracket notation is used when key contains - or space
+obj.sayMyName();
+
+// Big-O in Objects
+
+// a) Insert or remove - O(1)
+// b) Access - O(1)
+// c) Search - O(n)
+// Object.keys(obj) - O(n)
+// Object.values(obj) - O(n)
+// Object.entries(obj) - O(n)
