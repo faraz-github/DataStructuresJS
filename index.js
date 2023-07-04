@@ -97,3 +97,26 @@ obj.sayMyName();
 // Object.keys(obj) - O(n)
 // Object.values(obj) - O(n)
 // Object.entries(obj) - O(n)
+
+// 3. Set
+// ======================================================================================================================================
+
+// a) set can hold a collection of unique values
+// b) set can store diffrent data type values
+// c) size of a set is dynamic hence it is not required to declare the size
+// d) sets do not maintain an insertion order
+// e) set can be iterative and be used with for of loop
+
+// Declare and initialize a set using constructor
+const set = new Set([1, 2, 3]);
+
+// set operations
+set.add(4);
+console.log(set.has(4));
+set.delete(3);
+set.size;
+set.clear();
+
+for (const item of set) {
+  console.log(item);
+}
