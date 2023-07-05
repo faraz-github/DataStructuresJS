@@ -120,3 +120,27 @@ set.clear();
 for (const item of set) {
   console.log(item);
 }
+
+// 3. Map
+// ======================================================================================================================================
+
+// a) map is an unordered collection of key-value pair, both key and value can have any data type.
+// b) for retreiving a value, you can use the corresponding key
+// c) maps are iterable, they can be used with a for of loop
+
+// Declare and initialize a map using constructor
+const map = new Map([
+  ["a", 1],
+  ["b", 2],
+]); // a and b represents keys, 1 and 2 represents values
+
+// map operations
+map.set("c", 3);
+console.log(map.has("a"));
+map.delete("c");
+console.log(map.size);
+map.clear();
+
+for (const [key, value] of map) {
+  console.log(`${key}: ${value}`);
+}
