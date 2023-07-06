@@ -121,7 +121,7 @@ for (const item of set) {
   console.log(item);
 }
 
-// 3. Map
+// 4. Map
 // ======================================================================================================================================
 
 // a) map is an unordered collection of key-value pair, both key and value can have any data type.
