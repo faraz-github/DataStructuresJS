@@ -10,3 +10,11 @@
 //      2) undo operation when typing
 //      3) expression conversion
 //      4) call stack in javascript runtime
+
+// Stack operations
+// a) push
+// b) pop
+// c) peek
+// d) isEmpty
+// e) size
+// f) print
