@@ -62,3 +62,16 @@ console.log(stack.size());
 stack.print();
 console.log(stack.pop());
 console.log(stack.peek());
+
+// 1. Queue
+// ======================================================================================================================================
+
+// a) queue is a sequential collection of elements
+// b) queue follows the principal of first in first out FIFO.
+// c) queue has some analogical names like head(extraction point) and tail(insertion point).
+// d) queue is an abstract data type, meaning it is determined by it's behaviour rather than the structure.
+// e) stack has two main operations Enqueue (insertion-tail) and Dequeue (extraction-head)
+// f) some common real world usage for stack are
+//      1) printers
+//      2) CPU task scheduling
+//      3) callback queue in javascript runtime
