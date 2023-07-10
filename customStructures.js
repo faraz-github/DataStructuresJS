@@ -75,3 +75,58 @@ console.log(stack.peek());
 //      1) printers
 //      2) CPU task scheduling
 //      3) callback queue in javascript runtime
+
+// Queue operations
+// a) Enqueue
+// b) Dequeue
+// c) peek
+// d) isEmpty
+// e) size
+// f) print
+
+// Queue implementation
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+
+  dequeue() {
+    return this.items.shift();
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  peek() {
+    if (!this.isEmpty()) {
+      return this.items[0];
+    }
+    return null;
+  }
+
+  size() {
+    return this.items.length;
+  }
+
+  print() {
+    console.log(this.items.toString());
+  }
+}
+
+// Create new queue instance
+const queue = new Queue();
+
+// Testing
+console.log(queue.isEmpty());
+queue.enqueue("A");
+queue.enqueue("B");
+queue.enqueue("C");
+console.log(queue.size());
+queue.print();
+console.log(queue.dequeue());
+console.log(queue.peek());
