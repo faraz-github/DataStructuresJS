@@ -70,8 +70,8 @@ console.log(stack.peek());
 // b) queue follows the principal of first in first out FIFO.
 // c) queue has some analogical names like head(extraction point) and tail(insertion point).
 // d) queue is an abstract data type, meaning it is determined by it's behaviour rather than the structure.
-// e) stack has two main operations Enqueue (insertion-tail) and Dequeue (extraction-head)
-// f) some common real world usage for stack are
+// e) queue has two main operations Enqueue (insertion-tail) and Dequeue (extraction-head)
+// f) some common real world usage for queue are
 //      1) printers
 //      2) CPU task scheduling
 //      3) callback queue in javascript runtime
@@ -183,3 +183,19 @@ optimisedQueue.print();
 console.log(optimisedQueue.dequeue());
 console.log(optimisedQueue.dequeue());
 console.log(optimisedQueue.peek());
+
+// 3. CircularQueue
+// ======================================================================================================================================
+
+// a) circularQueue is fixed and a single block of memory is used
+// as if the first element is connected to the last element
+// b) circularQueue is also referred to as circular buffer or ring buffer
+// c) circularQueue follows the principal of first in first out FIFO
+// d) it will reuse the empty block created during the dequeue operation
+// e) when working with queues of fixed maximum size, a circular queue is a great implementation choice
+// f) circularQueue supports two main operation Enqueue(insertion-tail) and Dequeue(extraction-head)
+
+// g) some common real world usage for circular queue are
+//      1) clock
+//      2) streaming data
+//      3) traffic lights
