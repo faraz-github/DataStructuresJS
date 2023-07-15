@@ -292,3 +292,18 @@ console.log(circularQueue.peek());
 circularQueue.print();
 circularQueue.enqueue(60);
 circularQueue.print();
+
+// 3. LinkedList
+// ======================================================================================================================================
+
+// a) linked list is a linear data structure that includes a series of connected nodes
+// b) each node consists data value and pointer to the next node
+// c) the main benefit is insertion or extraction can be done without reallocation or
+// reorganisation of the entire structure
+// d) drawbacks is randomly accessing element is not feasible, and has linear time complexity while accessing
+// e) it supports three main operation, insertion(start, end or any index), deletion(index) and search(value)
+
+// f) some common real world usage for linkedlist
+//      1) all usage of both stacks and queues are possible via linked list too
+//      2) image viewer(like slide show)
+//      3) traffic lights
