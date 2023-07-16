@@ -307,3 +307,30 @@ circularQueue.print();
 //      1) all usage of both stacks and queues are possible via linked list too
 //      2) image viewer(like slide show)
 //      3) traffic lights
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  getSize() {
+    return this.size;
+  }
+}
+
+const linkedList = new LinkedList();
+
+console.log("List is empty?", linkedList.isEmpty());
+console.log("List size", linkedList.getSize());
