@@ -418,6 +418,24 @@ class LinkedList {
     }
   }
 
+  search(value) {
+    if (this.isEmpty()) {
+      return -1;
+    }
+
+    let i = 0;
+    let curr = this.head;
+    while (curr) {
+      if (curr.value === value) {
+        return i;
+      }
+      curr = curr.next;
+      i++;
+    }
+
+    return -1;
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty");
@@ -474,3 +492,6 @@ console.log(linkedList.removeValue(40));
 linkedList.print();
 console.log(linkedList.removeValue(20));
 linkedList.print();
+
+console.log(linkedList.search(20));
+console.log(linkedList.search(40));
