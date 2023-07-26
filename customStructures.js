@@ -511,3 +511,10 @@ console.log(linkedList.search(40));
 linkedList.print();
 linkedList.reverse();
 linkedList.print();
+
+// 4. LinkedList - with both head and tail
+// ======================================================================================================================================
+
+// a) If the linked list has only head then time complexity some operations are diffrent
+// b) When there is only head the time complexity for prepend is O(1) but for append it is O(n)
+// c) With the help of tail in linked list we can overcome this and make both operations O(1)
