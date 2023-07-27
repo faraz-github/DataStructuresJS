@@ -518,3 +518,120 @@ linkedList.print();
 // a) If the linked list has only head then time complexity some operations are diffrent
 // b) When there is only head the time complexity for prepend is O(1) but for append it is O(n)
 // c) With the help of tail in linked list we can overcome this and make both operations O(1)
+
+class NodeHT {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class LinkedListHT {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  getSize() {
+    return this.size;
+  }
+
+  prepend(value) {
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
+    this.size++;
+  }
+
+  append(value) {
+    const node = new Node(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
+    this.size++;
+  }
+
+  removeFromFront() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const value = this.head.value;
+    this.head = this.head.next;
+    this.size--;
+    return value;
+  }
+
+  removeFromEnd() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const value = this.tail.value;
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      let prev = this.head;
+      while (prev.next !== this.tail) {
+        prev = prev.next;
+      }
+      prev.next = null;
+      this.tail = prev;
+    }
+    this.size--;
+    return value;
+  }
+
+  reverse() {
+    let current = this.head;
+    let prev = null;
+    let next = null;
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    this.tail = this.head;
+    this.head = prev;
+  }
+
+  print() {
+    if (this.isEmpty()) {
+      console.log("List is empty");
+    } else {
+      let curr = this.head;
+      let list = "";
+      while (curr) {
+        list += `${curr.value}->`;
+        curr = curr.next;
+      }
+      console.log(list);
+    }
+  }
+}
+
+const linkedListHT = new LinkedListHT();
+linkedListHT.append(1);
+linkedListHT.append(2);
+linkedListHT.append(3);
+linkedListHT.prepend(0);
+linkedListHT.print();
+console.log(linkedListHT.getSize());
+linkedListHT.removeFromFront();
+linkedListHT.print();
+linkedListHT.removeFromEnd();
+linkedListHT.print();
