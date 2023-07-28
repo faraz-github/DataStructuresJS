@@ -635,3 +635,50 @@ linkedListHT.removeFromFront();
 linkedListHT.print();
 linkedListHT.removeFromEnd();
 linkedListHT.print();
+
+// 5. LinkedList - stack
+// ======================================================================================================================================
+
+// a) Since we know stack works on LIFO - last in first out principal
+// b) we can implement it using the linkedlist
+
+class LinkedListStack {
+  constructor() {
+    this.list = new LinkedListHT();
+  }
+
+  push(value) {
+    this.list.prepend(value);
+  }
+
+  pop() {
+    return this.list.removeFromFront();
+  }
+
+  peek() {
+    return this.list.head.value;
+  }
+
+  isEmpty() {
+    return this.list.isEmpty();
+  }
+
+  getSize() {
+    return this.list.getSize();
+  }
+
+  print() {
+    return this.list.print();
+  }
+}
+
+const linkedListStack = new LinkedListStack();
+
+console.log(linkedListStack.isEmpty());
+linkedListStack.push(20);
+linkedListStack.push(10);
+linkedListStack.push(30);
+console.log(linkedListStack.getSize());
+linkedListStack.print();
+console.log(linkedListStack.pop());
+console.log(linkedListStack.peek());
