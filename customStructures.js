@@ -682,3 +682,50 @@ console.log(linkedListStack.getSize());
 linkedListStack.print();
 console.log(linkedListStack.pop());
 console.log(linkedListStack.peek());
+
+// 6. LinkedList - queue
+// ======================================================================================================================================
+
+// a) Since we know stack works on FIFO - first in first out principal
+// b) we can implement it using the linkedlist with both head and tail pointer
+
+class LinkedListQueue {
+  constructor() {
+    this.list = new LinkedListHT();
+  }
+
+  enqueue(value) {
+    this.list.append(value);
+  }
+
+  dequeue() {
+    return this.list.removeFromFront();
+  }
+
+  peek() {
+    return this.list.head.value;
+  }
+
+  isEmpty() {
+    return this.list.isEmpty();
+  }
+
+  getSize() {
+    return this.list.getSize();
+  }
+
+  print() {
+    return this.list.print();
+  }
+}
+
+const linkedListQueue = new LinkedListQueue();
+
+console.log(linkedListQueue.isEmpty());
+linkedListQueue.enqueue(10);
+linkedListQueue.enqueue(20);
+linkedListQueue.enqueue(30);
+console.log(linkedListQueue.getSize());
+linkedListQueue.print();
+console.log(linkedListQueue.dequeue());
+console.log(linkedListQueue.peek());
