@@ -18,3 +18,60 @@
 // b) Caches
 
 // Side note: map is better than objects
+
+class HashTable {
+  constructor(size) {
+    this.table = new Array(size);
+    this.size = size;
+  }
+
+  hash(key) {
+    let total = 0;
+    for (let index = 0; index < key.length; index++) {
+      total += key.charCodeAt(index);
+    }
+    return total % this.size; // to keep in array bounds
+  }
+
+  set(key, value) {
+    const index = this.hash(key);
+    this.table[index] = value;
+  }
+
+  get(key) {
+    const index = this.hash(key);
+    return this.table[index];
+  }
+
+  remove(key) {
+    const index = this.hash(key);
+    this.table[index] = undefined;
+  }
+
+  display() {
+    for (let index = 0; index < this.table.length; index++) {
+      if (this.table[index]) {
+        console.log(index, this.table[index]);
+      }
+    }
+  }
+}
+
+const table = new HashTable(50);
+
+table.set("name", "Bruce");
+table.set("age", 25);
+
+// Below shows a bug a of our simple hashing function
+table.display();
+// Display Output
+// 1 25
+// 17 Bruce
+table.set("mane", "Clark");
+table.display();
+// Display Output
+// 1 25
+// 17 Clark
+
+console.log(table.get("name"));
+table.remove("name");
