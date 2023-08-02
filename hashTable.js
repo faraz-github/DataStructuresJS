@@ -19,6 +19,7 @@
 
 // Side note: map is better than objects
 
+// Handling Hashing Collisions
 class HashTable {
   constructor(size) {
     this.table = new Array(size);
@@ -35,17 +36,43 @@ class HashTable {
 
   set(key, value) {
     const index = this.hash(key);
-    this.table[index] = value;
+    // this.table[index] = value;
+    const bucket = this.table[index];
+    if (!bucket) {
+      this.table[index] = [[key, value]];
+    } else {
+      const sameKeyItem = bucket.find((item) => item[0] === key);
+      if (sameKeyItem) {
+        sameKeyItem[1] = value;
+      } else {
+        bucket.push([key, value]);
+      }
+    }
   }
 
   get(key) {
     const index = this.hash(key);
-    return this.table[index];
+    // return this.table[index];
+    const bucket = this.table[index];
+    if (bucket) {
+      const sameKeyItem = bucket.find((item) => item[0] === key);
+      if (sameKeyItem) {
+        return sameKeyItem[1];
+      }
+    }
+    return undefined;
   }
 
   remove(key) {
     const index = this.hash(key);
-    this.table[index] = undefined;
+    // this.table[index] = undefined;
+    const bucket = this.table[index];
+    if (bucket) {
+      const sameKeyItem = bucket.find((item) => item[0] === key);
+      if (sameKeyItem) {
+        bucket.splice(bucket.indexOf(sameKeyItem), 1);
+      }
+    }
   }
 
   display() {
@@ -61,17 +88,15 @@ const table = new HashTable(50);
 
 table.set("name", "Bruce");
 table.set("age", 25);
-
-// Below shows a bug a of our simple hashing function
 table.display();
-// Display Output
-// 1 25
-// 17 Bruce
+
 table.set("mane", "Clark");
 table.display();
-// Display Output
-// 1 25
-// 17 Clark
 
 console.log(table.get("name"));
+
+table.set("name", "Diana");
+table.display();
+
 table.remove("name");
+table.display();
