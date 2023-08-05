@@ -24,3 +24,19 @@
 // h) Degree
 // i) Depth
 // j) Height
+
+// Binary Search Tree
+
+// a) In Binary Search Tree each node has maximum two child node
+// b) each left child will be smaller than parent and each right child will be greater than the parent
+
+// Main operations
+// a) Insertion
+// b) Search
+// c) DFS & BFS To visit all nodes in tree
+// d) Deletion
+
+// Application
+// a) Searching
+// b) Sorting
+// c) Implement abstract data types such as look up tables and priority queue
