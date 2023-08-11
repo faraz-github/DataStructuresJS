@@ -41,6 +41,18 @@
 // b) Sorting
 // c) Implement abstract data types such as look up tables and priority queue
 
+// Tree Traversal
+// Visiting every node in the tree
+// a) Depth first search (DFS)
+// b) Breadth first search (BFS)
+
+// A DFS algorithm starts at the root node and explores as far as possible along each branch before backtracking
+// Visit root node, visit all the nodes in the left subtree and visit all all the nodes in the right subtree
+// It can be done in three order
+// a) Preorder - Read node - Visit left subtree - Visit right subtree
+// b) Inorder
+// c) Postorder
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -95,6 +107,15 @@ class BinarySearchTree {
       return this.search(root.right, value);
     }
   }
+
+  // Tree traversal
+  preOrder(root) {
+    if (root) {
+      console.log(root.value);
+      this.preOrder(root.left);
+      this.preOrder(root.right);
+    }
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -103,8 +124,12 @@ console.log("Tree is empty?", bst.isEmpty());
 bst.insert(10);
 bst.insert(5);
 bst.insert(15);
+bst.insert(3);
+bst.insert(7);
 
 console.log(bst.search(bst.root, 10));
 console.log(bst.search(bst.root, 5));
 console.log(bst.search(bst.root, 15));
 console.log(bst.search(bst.root, 20));
+
+bst.preOrder(bst.root);
