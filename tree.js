@@ -50,8 +50,8 @@
 // Visit root node, visit all the nodes in the left subtree and visit all all the nodes in the right subtree
 // It can be done in three order
 // a) Preorder - Read node - Visit left subtree - Visit right subtree
-// b) Inorder
-// c) Postorder
+// b) Inorder - Visit left subtree - Read node - Visit right subtree
+// c) Postorder - Visit left subtree - Visit right subtree - Read node
 
 class Node {
   constructor(value) {
@@ -116,6 +116,22 @@ class BinarySearchTree {
       this.preOrder(root.right);
     }
   }
+
+  inOrder(root) {
+    if (root) {
+      this.inOrder(root.left);
+      console.log(root.value);
+      this.inOrder(root.right);
+    }
+  }
+
+  postOrder(root) {
+    if (root) {
+      this.postOrder(root.left);
+      this.postOrder(root.right);
+      console.log(root.value);
+    }
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -133,3 +149,7 @@ console.log(bst.search(bst.root, 15));
 console.log(bst.search(bst.root, 20));
 
 bst.preOrder(bst.root);
+console.log("------------------");
+bst.inOrder(bst.root);
+console.log("------------------");
+bst.postOrder(bst.root);
