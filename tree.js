@@ -53,6 +53,16 @@
 // b) Inorder - Visit left subtree - Read node - Visit right subtree
 // c) Postorder - Visit left subtree - Visit right subtree - Read node
 
+// A BFS algorithm is exploring all nodes at the present depth prior to moving on to the nodes at the next depth level
+// It can be done in the following steps
+// a) Create a queue
+// b) Enqueue the root node
+// c) As long as a node exist in the queue
+//  - Dequeue the node from the front
+//  - Read the node value
+//  - Enqueue the node left child if it exists
+//  - Enqueue the node right child if it exists
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -108,7 +118,7 @@ class BinarySearchTree {
     }
   }
 
-  // Tree traversal
+  // Tree traversal - DFS
   preOrder(root) {
     if (root) {
       console.log(root.value);
@@ -132,6 +142,23 @@ class BinarySearchTree {
       console.log(root.value);
     }
   }
+
+  // Tree traversal - BFS
+  levelOrder() {
+    // Use actual optimised queue data structure
+    const queue = [];
+    queue.push(this.root);
+    while (queue.length) {
+      let curr = queue.shift();
+      console.log(curr.value);
+      if (curr.left) {
+        queue.push(curr.left);
+      }
+      if (curr.right) {
+        queue.push(curr.right);
+      }
+    }
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -153,3 +180,5 @@ console.log("------------------");
 bst.inOrder(bst.root);
 console.log("------------------");
 bst.postOrder(bst.root);
+console.log("------------------");
+bst.levelOrder();
