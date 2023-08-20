@@ -14,3 +14,12 @@
 // EXAMPLES
 // - Google Maps
 // - Social Media Sites
+
+// Code Representation of a graph structure
+// Graph is usually represented by adjacency matrix adjacency list
+
+const matrix = [
+  [0, 1, 0],
+  [1, 0, 1],
+  [0, 1, 0],
+];
