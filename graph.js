@@ -54,6 +54,19 @@ class Graph {
     this.adjacencyList[vertexOne].add(vertexTwo); // add is available on Set
     this.adjacencyList[vertexTwo].add(vertexOne);
   }
+
+  hasEdge(vertexOne, vertexTwo) {
+    return (
+      this.adjacencyList[vertexOne].has(vertexTwo) &&
+      this.adjacencyList[vertexTwo].has(vertexOne)
+    );
+  }
+
+  display() {
+    for (let vertex in this.adjacencyList) {
+      console.log(`${vertex} -> ${[...this.adjacencyList[vertex]]}`);
+    }
+  }
 }
 
 const graph = new Graph();
@@ -63,3 +76,8 @@ graph.addVertex("C");
 
 graph.addEdge("A", "B");
 graph.addEdge("B", "C");
+
+graph.display();
+
+console.log(graph.hasEdge("A", "B"));
+console.log(graph.hasEdge("A", "C"));
