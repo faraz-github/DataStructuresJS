@@ -55,6 +55,23 @@ class Graph {
     this.adjacencyList[vertexTwo].add(vertexOne);
   }
 
+  removeEdge(vertexOne, vertexTwo) {
+    this.adjacencyList[vertexOne].delete(vertexTwo);
+    this.adjacencyList[vertexTwo].delete(vertexOne);
+  }
+
+  removeVertex(vertex) {
+    if (!this.adjacencyList[vertex]) {
+      return;
+    }
+
+    for (let adjacentVertex of this.adjacencyList[vertex]) {
+      this.removeEdge(vertex, adjacentVertex);
+    }
+
+    delete this.adjacencyList[vertex];
+  }
+
   hasEdge(vertexOne, vertexTwo) {
     return (
       this.adjacencyList[vertexOne].has(vertexTwo) &&
@@ -81,3 +98,7 @@ graph.display();
 
 console.log(graph.hasEdge("A", "B"));
 console.log(graph.hasEdge("A", "C"));
+
+// graph.removeEdge("A", "B");
+graph.removeVertex("B");
+graph.display();
